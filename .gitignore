@@ -1,1 +1,3 @@
 QSsh.pro.user*
+build/*
+.DS_Store
