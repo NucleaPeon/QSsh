@@ -40,15 +40,6 @@
 #include "sshkeyexchange_p.h"
 #include "sshremoteprocess.h"
 
-#include <botan/botan.h>
-
-#include <QFile>
-#include <QMutex>
-#include <QMutexLocker>
-#include <QNetworkProxy>
-#include <QRegExp>
-#include <QTcpSocket>
-
 /*!
     \class QSsh::SshConnection
 
@@ -61,7 +52,7 @@
 
 namespace QSsh {
 
-const QByteArray ClientId("SSH-2.0-QtCreator\r\n");
+const QByteArray ClientId("SSH-2.0-libQSsh\r\n");
 
 SshConnectionParameters::SshConnectionParameters() :
     timeout(0),  authenticationType(AuthenticationTypePublicKey), port(0)

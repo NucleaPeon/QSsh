@@ -34,7 +34,7 @@ make install
 
 To run tests (also in build/ directory):
 ```sh
-ctest
+make test
 ```
 
 Currently only a Shared/Dynamic library is built.

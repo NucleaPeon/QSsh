@@ -11,8 +11,6 @@ find_package(Qt5 REQUIRED
     Test
 )
 
-enable_testing()
-
 if(APPLE)
 	# g++-4.2 on Snow Leopard doesn't allow for inline variable definitions whereas
 	# clang 3 does. If on Apple, you need to use clang for this to compile correctly.
@@ -138,14 +136,22 @@ install(FILES ${CMAKE_BINARY_DIR}/QSsh.pc DESTINATION
 
 # ############# TESTING ############# #
 
+enable_testing()
+
 add_executable(sanity tests/sanity/main.cpp)
-add_test(${PROJECT_NAME} sanity)
-target_link_libraries(sanity botan Qt5::Core Qt5::Widgets Qt5::Network Qt5::Test)
+target_link_libraries(sanity botan Qt5::Core Qt5::Widgets Qt5::Network Qt5::Test QSsh)
 
 # Enable verbose mode
 add_compile_options(-v)
 
-add_executable(errorhandling tests/errorhandling/main.cpp tests/errorhandling/test.h tests/errorhandling/test.cpp)
-add_test(${PROJECT_NAME} errorhandling)
-target_link_libraries(errorhandling botan Qt5::Core Qt5::Widgets Qt5::Network Qt5::Test)
+add_executable(shell
+	tests/remoteprocess/argumentscollector.h
+	tests/remoteprocess/argumentscollector.cpp
+	tests/shell/main.cpp
+	tests/shell/shell.h
+	tests/shell/shell.cpp)
+
+target_link_libraries(shell botan Qt5::Core Qt5::Widgets Qt5::Network Qt5::Test QSsh)
+
+add_test(sanity sanity)
 

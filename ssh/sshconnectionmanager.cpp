@@ -28,7 +28,6 @@
 ****************************************************************************/
 
 #include "sshconnectionmanager.h"
-
 #include "sshconnection.h"
 
 #include <QCoreApplication>

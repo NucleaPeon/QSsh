@@ -34,12 +34,22 @@
 
 #include "ssh_global.h"
 
+#include <botan.h>
+
 #include <QByteArray>
 #include <QFlags>
 #include <QObject>
 #include <QSharedPointer>
 #include <QString>
 #include <QHostAddress>
+
+#include <QFile>
+#include <QMutex>
+#include <QMutexLocker>
+#include <QNetworkProxy>
+#include <QRegExp>
+#include <QTcpSocket>
+
 
 namespace QSsh {
 class SftpChannel;

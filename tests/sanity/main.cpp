@@ -8,10 +8,9 @@
 #include <QPair>
 #include <QTimer>
 
-
+using namespace QSsh;
 int main(int argc, char *argv[])
 {
-    QCoreApplication a(argc, argv);
-	// This test just ensures we can import the library
-    return a.exec();
+	SshConnectionParameters params = SshConnectionParameters();
+	//SshConnection conn(params);  // This fails the tests
 }

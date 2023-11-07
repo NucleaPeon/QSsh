@@ -1,4 +1,4 @@
-QSsh.pro.user*
+*.pro.user*
 build/*
 .DS_Store
 Makefile
