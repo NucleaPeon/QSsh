@@ -138,13 +138,14 @@ install(FILES ${CMAKE_BINARY_DIR}/QSsh.pc DESTINATION
 
 # ############# TESTING ############# #
 
-# Enable verbose mode
-add_compile_options(-v)
 add_executable(sanity tests/sanity/main.cpp)
 add_test(${PROJECT_NAME} sanity)
 target_link_libraries(sanity botan Qt5::Core Qt5::Widgets Qt5::Network Qt5::Test)
 
-#add_test(foo foo)
-#add_test(foo foo)
-#add_test(foo foo)
+# Enable verbose mode
+add_compile_options(-v)
+
+add_executable(errorhandling tests/errorhandling/main.cpp tests/errorhandling/test.h tests/errorhandling/test.cpp)
+add_test(${PROJECT_NAME} errorhandling)
+target_link_libraries(errorhandling botan Qt5::Core Qt5::Widgets Qt5::Network Qt5::Test)
 
