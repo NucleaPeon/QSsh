@@ -14,9 +14,10 @@ project(botan
 find_package(Qt5 REQUIRED
     Core
 )
+include(GNUInstallDirs)  # REQUIRED TO INSTALL PKGCONFIG TO PROPER DIR!
+
 set(CMAKE_CXX_STANDARD_COMPUTED_DEFAULT "98")
 
-# TODO: PKGCONFIG botan 1.10
 list(APPEND BOTAN_HEADERS
 	botan.h
 )
@@ -37,9 +38,18 @@ add_library(botan SHARED
 	${BOTAN_HEADERS}
 	${BOTAN_SOURCES}
 )
+set_target_properties(botan PROPERTIES VERSION ${PROJECT_VERSION}
+	SOVERSION 1
+)
+
+set_target_properties(botan PROPERTIES PUBLIC_HEADER "${BOTAN_HEADERS}")
+configure_file(botan.pc.in botan.pc @ONLY)
 
 target_link_libraries(botan Qt5::Core)
 
 install(TARGETS botan
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+
+install(FILES ${CMAKE_BINARY_DIR}/botan.pc DESTINATION
+	${CMAKE_INSTALL_DATAROOTDIR}/pkgconfig)

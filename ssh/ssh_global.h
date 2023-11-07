@@ -30,7 +30,7 @@
 #ifndef SSH_GLOBAL_H
 #define SSH_GLOBAL_H
 
-#include <QtCore/QtGlobal>
+#include <QtGlobal>
 
 #if defined(QSSH_LIBRARY)
 #  define QSSH_EXPORT Q_DECL_EXPORT

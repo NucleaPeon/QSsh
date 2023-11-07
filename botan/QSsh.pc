@@ -1,0 +1,12 @@
+prefix=/usr/local
+exec_prefix=/usr/local
+libdir=${exec_prefix}/
+includedir=${prefix}/
+
+Name: QSsh
+Description: Qt5 SSH Library from Qt5.3.2 codebase
+Version: 0.1.0
+
+Requires:
+Libs: -L${libdir} -lQSsh
+Cflags: -I${includedir}

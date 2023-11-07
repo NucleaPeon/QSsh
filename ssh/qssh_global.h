@@ -1,7 +1,7 @@
 #ifndef SLESSH_GLOBAL_H
 #define SLESSH_GLOBAL_H
 
-#include <QtCore/qglobal.h>
+#include <QGlobal>
 
 #if defined(SLESSH_LIBRARY)
 #  define SLESSHSHARED_EXPORT Q_DECL_EXPORT
